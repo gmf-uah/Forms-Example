@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkbox and Radio Button Example</title>
+</head>
+<body>
+  <h1>Form Example</h1>
+  <form id="example-form">
+    <fieldset>
+      <legend>Checkbox Group</legend>
+      <label><input type="checkbox" name="checkbox-group" value="Option 1"> Option 1</label><br>
+      <label><input type="checkbox" name="checkbox-group" value="Option 2"> Option 2</label><br>
+      <label><input type="checkbox" name="checkbox-group" value="Option 3"> Option 3</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Radio Button Group</legend>
+      <label><input type="radio" name="radio-group" value="Option A"> Option A</label><br>
+      <label><input type="radio" name="radio-group" value="Option B"> Option B</label><br>
+      <label><input type="radio" name="radio-group" value="Option C"> Option C</label>
+    </fieldset>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+    document.getElementById('example-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const checkboxes = Array.from(document.querySelectorAll('[name="checkbox-group"]:checked'))
+        .map(cb => cb.value);
+
+      const radio = document.querySelector('[name="radio-group"]:checked');
+      const radioValue = radio ? radio.value : null;
+
+      console.log('Selected checkboxes:', checkboxes);
+      console.log('Selected radio button:', radioValue);
+    });
+  </script>
+</body>
+</html>
