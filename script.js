@@ -1,6 +1,4 @@
 document.getElementById('example-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-
   const checkboxes = Array.from(document.querySelectorAll('[name="checkbox-group"]:checked'))
     .map(cb => cb.value);
 
